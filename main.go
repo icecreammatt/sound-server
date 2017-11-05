@@ -14,11 +14,11 @@ func playSoundFile(w http.ResponseWriter, r *http.Request) {
 	app := "mpg123"
 	arg1 := r.URL.Path
 	// s := []string{"/Users/matt/go/src/github.com/icecreammatt/sound-server", arg1}
-
 	s := []string{"/root", arg1}
 	musicCommand := strings.Join(s, "")
 	fmt.Println(musicCommand)
-
+	fmt.Fprintf(w, "Playing Sound\n")
+	
 	cmd := exec.Command(app, musicCommand)
 	stdout, err := cmd.Output()
 	if err != nil {
@@ -26,7 +26,6 @@ func playSoundFile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	print(string(stdout))
-	fmt.Fprintf(w, "Playing Sound\n")
 }
 
 func main() {
