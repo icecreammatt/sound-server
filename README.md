@@ -16,3 +16,12 @@ I have a separate device that takes care of monitoring when door open and close 
 
 * Linux `apt-get install mpg123`
 * Mac `brew install mpg123`
+
+Update the the `build-and-deploy.sh` script so it contains the IP of the device desired to deploy to.
+Deploy the binary to the device and then set it up so it starts automatically on device startup.
+Ensure that there are audio files in `/root`.
+
+## Testing
+
+Drop some sample sound files in the `/root` directory of the remote device. Then hit the current URL in the browser or command line
+`curl <remote-ip>:8080/sound-file.mp3`
